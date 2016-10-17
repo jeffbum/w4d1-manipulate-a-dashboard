@@ -81,10 +81,27 @@ var changeHeaders = document.querySelectorAll('th')
 //
 // // 9. Make an array of objects, each object representing a single row in the table. Remove the commas from the ID column and convert it to an actual Number data type. Example: [{id: 1001, firstName: 'Lorem', lastName: 'ipsum', department: 'dolor', client: 'sit'}]
 // an object representing each row like the example above
-//
+//get rid of comma in the number. use replace. Then convert it to a number.
+var rowOfObjects = []
+var arrayObjects = document.querySelectorAll('tbody > tr')
+arrayObjects.forEach(function(arrayObject) {
+    var rowOfObject = {
+        id:Number(arrayObject.children[0].innerHTML.replace(',', '')),
+        firstName: arrayObject.children[1].innerHTML,
+        lastName:arrayObject.children[2].innerHTML,
+        department:arrayObject.children[3].innerHTML,
+        client:arrayObject.children[4].innerHTML,
+    }
+    rowOfObjects.push(rowOfObject)
+})
+console.log(rowOfObjects)
 
 
 
 
 // // 10. Make each word in the table capitalized.
 // first letter to be capitalized
+var capitalizeFirst = document.querySelectorAll('table')
+capitalizeFirst.forEach(function(word) {
+    word.classList.add('text-capitalize')
+})
